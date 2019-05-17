@@ -54,6 +54,8 @@
 			$('#name').val("");
 			$('#gender').val("");
 			$('#age').val("");
+			$('#email').val("");
+			$('#city').val("");
 			$("#dilivery").off("click").on("click", function() {
 				var record = {
 					id : $('#id').val(),
@@ -101,10 +103,12 @@
 							async : false,
 							success : function(result) {
 								var r = JSON.stringify(result);
-								layer.alert("学号:" + result["id"] + " 姓名:"
-										+ result["name"] + " 性别:"
-										+ result["gender"] + " 年龄:"
-										+ result["age"], {
+								layer.alert("学号:" + result["id"] +
+                                    " 姓名:" + result["name"] +
+                                    " 性别:" + result["gender"] +
+                                    " 年龄:" + result["age"] +
+                                    "邮箱:"  + result["email"] +
+                                    "住址:" + result["city"] + {
 									title : '查询结果'
 								});
 							},
@@ -210,6 +214,7 @@
 			});
 		},
 
+        //编辑
 		"click #edit" : function(e, value, row, index) {
 			layer.open({
 				type : 1,
@@ -232,7 +237,9 @@
 					id : $('#id').val(),
 					name : $('#name').val(),
 					gender : $('#gender').val(),
-					age : $('#age').val()
+					age : $('#age').val(),
+                    email : $('#email').val(),
+                    city : $('#cigy').val()
 				}
 				//Ajax调用处理
 				$.ajax({

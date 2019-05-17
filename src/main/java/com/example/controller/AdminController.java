@@ -18,7 +18,7 @@ public class AdminController {
 	private AdminService adminService;
 
 	
-	@RequestMapping(value = "/judge", method = RequestMethod.POST)
+	@RequestMapping(value = "judge", method = RequestMethod.POST)
 	@ResponseBody
 	public String jumpPage(@RequestBody Map<String, String> map,HttpServletResponse response) {
 		Admin admin = adminService.checkLogin(map.get("id"));

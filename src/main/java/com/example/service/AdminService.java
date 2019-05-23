@@ -11,8 +11,8 @@ public class AdminService {
 	@Resource
 	private AdminDao adminDao;
 	
-	public Admin checkLogin(String id) {
-		Admin admin = adminDao.loginCheck(id);
+	public Admin checkLogin(String name) {
+		Admin admin = adminDao.loginCheck(name);
 		return admin;
 	}
 }

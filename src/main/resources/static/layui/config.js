@@ -1,12 +1,3 @@
-/**
-
- @Name：layuiAdmin iframe版全局配置
- @Author：贤心
- @Site：http://www.layui.com/admin/
- @License：LPPL（layui付费产品协议）
-    
- */
- 
 layui.define(['laytpl', 'layer', 'element', 'util'], function(exports){
   exports('setter', {
     container: 'LAY_app' //容器ID
@@ -48,8 +39,9 @@ layui.define(['laytpl', 'layer', 'element', 'util'], function(exports){
     ,theme: {
       //内置主题配色方案
       color: [{
-        main: '#20222A' //主题色
-        ,selected: '#009688' //选中色
+        main: '#24262F' //主题色
+        ,logo: '#03152a'
+        ,selected: '#2F4056' //选中色
         ,alias: 'default' //默认别名
       },{
         main: '#03152A'

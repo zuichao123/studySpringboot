@@ -12,37 +12,16 @@ public class LoginController {
 	
 	@RequestMapping("/")
 	public String login() {
-		return "admin/login";
+		return "admin/login2";
 	}
 
-	//	@RequestMapping("/")
-//	public ModelAndView login(ModelAndView modelAndView) {
-//		modelAndView.setViewName("admin/login");
-//		return modelAndView;
-//	}
-
-//	@RequestMapping("/index")
-//	public String index(HttpServletRequest request) {
-//		Cookie[] cookies=request.getCookies();
-//		if (cookies!=null) {
-//			for (Cookie cookie : cookies) {
-////				System.out.printf("cokie----"+cookie.getValue());
-//				if (cookie.getName().equals("id")) {
-//					return "student/index";
-//				}
-//			}
-//		}
-//		return "login";
-//	}
-
-	@RequestMapping("/index")
+	@RequestMapping("/index2")
 	public ModelAndView index(ModelAndView modelAndView, HttpServletRequest request) {
 		Cookie[] cookies=request.getCookies();
 		if (cookies!=null) {
 			for (Cookie cookie : cookies) {
-//				System.out.printf("cokie----"+cookie.getValue());
-				if (cookie.getName().equals("id")) {
-					modelAndView.setViewName("student/index");
+				if (cookie.getName().equals("name")) {
+					modelAndView.setViewName("person/index2");
 				}
 			}
 		}

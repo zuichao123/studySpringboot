@@ -351,15 +351,16 @@ layui.define('view', function(exports){
 
         //刷新
         ,refresh: function(){
-            var ELEM_IFRAME = '.layadmin-iframe'
+           var ELEM_IFRAME = '.layadmin-iframe'
                 ,length = $('.'+ TABS_BODY).length;
-
             if(admin.tabsPage.index >= length){
                 admin.tabsPage.index = length - 1;
             }
-
             var iframe = admin.tabsBody(admin.tabsPage.index).find(ELEM_IFRAME);
-            iframe[0].contentWindow.location.reload(true);
+          iframe[0].contentWindow.location.reload(true);/*这个iframe不是数组，长度为0*/
+
+/*
+            window.location.replace(location.href);*/
         }
 
         //输入框搜索
@@ -621,12 +622,12 @@ layui.define('view', function(exports){
     //初始
     !function(){
         //主题初始化，本地主题记录优先，其次为 initColorIndex
-        var local = layui.data(setter.tableName);
-        if(local.theme){
-            admin.theme(local.theme);
-        } else if(setter.theme){
+        // var local = layui.data(setter.tableName);
+        // if(local.theme){
+        //     admin.theme(local.theme);
+        // } else if(setter.theme){
             admin.initTheme(setter.theme.initColorIndex);
-        }
+        // }
 
         //常规版默认开启多标签页
         if(!('pageTabs' in layui.setter)) layui.setter.pageTabs = true;
@@ -741,9 +742,14 @@ layui.define('view', function(exports){
             ,attr = othis.attr('lay-attr')
             ,index = othis.index();
 
-        admin.tabsBodyChange(index, {
-            url: attr
-        });
+        // 这特么是我自己改的 666
+        // alert(layid + '-----' + attr + "------" + index);
+        $('.layadmin-tabsbody-item').removeClass(SHOW);
+        $('#LAY_app_body').find('.layadmin-tabsbody-item').eq(index).addClass(SHOW);
+
+        // admin.tabsBodyChange(index, {
+        //     url: attr
+        // });
         //location.hash = layid === setter.entry ? '/' : attr;
     }
         ,TABS_HEADER = '#LAY_app_tabsheader>li';
@@ -752,10 +758,8 @@ layui.define('view', function(exports){
     $body.on('click', TABS_HEADER, function(){
         var othis = $(this)
             ,index = othis.index();
-
         admin.tabsPage.type = 'tab';
         admin.tabsPage.index = index;
-
         setThisRouter(othis);
     });
 

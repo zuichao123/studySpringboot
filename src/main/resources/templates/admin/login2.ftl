@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>虹膜身份认证系统</title>
+    <title>XXXX系统</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="/static/layui/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="/static/layui/style/admin.css" media="all">
-    <link rel="stylesheet" href="/static/layui/style/login.css" media="all">
+
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+
     <style>
         body {
             background-image: url(/static/img/bg_login.png);
@@ -87,7 +87,6 @@
             color: rgba(255, 255, 255, 0.4) !important;
         }
 
-        /** 澶撮儴鏍峰紡 */
         .login-header {
             font-family: Myriad Pro, Helvetica Neue, Arial, Helvetica, sans-serif;
             font-size: 20px;
@@ -100,7 +99,6 @@
             height: 40px;
         }
 
-        /** 绉诲姩璁惧鏍峰紡 */
         @media screen and (min-height: 590px) {
             .login-footer {
                 position: absolute;
@@ -127,18 +125,18 @@
             color: #000;
         }
 
-
         @media screen and (min-height: 670px) {
             .login-body {
                 padding: 10px 10px 40px 10px;
             }
         }
 
-
     </style>
 </head>
-<script src="/static/layui/layui/layui.js"></script>
-<script src="/static/layui/myjs/loginpage.js"></script>
+
+<script src="/static/layui/layui.js"></script>
+<script src="/static/scripts/myjs/loginPage.js"></script>
+
 <body>
 <div class="login-wrapper">
 
@@ -153,7 +151,7 @@
             </div>
             <div  class="layui-card-body layui-form layui-form-pane">
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" style="text-align: center">
                     <label class="layadmin-user-login-header">
                         <h2>XXXXX系统</h2>
                     </label>
@@ -162,7 +160,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label"><i class="layui-icon layui-icon-username"></i></label>
                     <div class="layui-input-block">
-                        <input id="id" name="account" type="text" class="layui-input" placeholder="用户名" lay-verType="tips"
+                        <input id="name" name="name" type="text" class="layui-input" placeholder="用户名" lay-verType="tips"
                                lay-verify="required"/>
                     </div>
                 </div>
@@ -174,9 +172,8 @@
                     </div>
                 </div>
 
-
                 <div class="layui-form-item">
-                    <button type="button" class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit" onclick="f()">登 入</button>
+                    <button type="button" class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit" >登 入</button>
                 </div>
 
             </div>

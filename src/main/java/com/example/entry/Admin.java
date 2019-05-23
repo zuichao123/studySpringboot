@@ -1,13 +1,15 @@
 package com.example.entry;
 
-public class Admin {
-	private String id;
+import java.io.Serializable;
+
+public class Admin implements Serializable {
+	private String name;
 	private String password;
 	public String getId() {
-		return id;
+		return name;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String name) {
+		this.name = name;
 	}
 	public String getPassword() {
 		return password;
@@ -16,10 +18,12 @@ public class Admin {
 		this.password = password;
 	}
 
+	public Admin(){}
+
 	@Override
 	public String toString() {
 		return "Admin{" +
-				"id='" + id + '\'' +
+				"name='" + name + '\'' +
 				", password='" + password + '\'' +
 				'}';
 	}

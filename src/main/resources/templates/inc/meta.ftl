@@ -6,13 +6,13 @@
 <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
 <link rel="stylesheet" href="/static/mycss/admin.css" media="all">
 
-<script src="/static/layui/config.js"></script>
-<script src="/static/layui/lib/index.js"></script>
 <script src="/static/layui/layui.js"></script>
 
 <#--<link rel="stylesheet" href="/static/css/theme.css" media="all">-->
 <#--<script src="/static/scripts/html5shiv/r29/html5.min.js"></script>-->
 <#--<script src="/static/scripts/respond.js/1.4.2/respond.min.js"></script>-->
+<#--屏蔽backspace回格键退出-->
+<script type="text/javascript" src="/static/scripts/inc/backspace.js?time=${.now}"></script>
 
 <script>
     var l= layui.config({

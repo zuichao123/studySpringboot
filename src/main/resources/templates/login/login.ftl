@@ -135,7 +135,7 @@
 </head>
 
 <script src="/static/layui/layui.js"></script>
-<script src="/static/scripts/myjs/loginPage.js"></script>
+<script src="/static/scripts/myjs/loginJs/loginPage.js"></script>
 
 <body>
 <div class="login-wrapper">
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="layui-form-item">
-                    <button type="button" class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit" >登 入</button>
+                    <button type="button" id="submit" class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit" >登 录</button>
                 </div>
 
             </div>

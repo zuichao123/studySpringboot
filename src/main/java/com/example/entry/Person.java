@@ -9,6 +9,33 @@ public class Person implements Serializable {
 	private String age;
 	private String email;
 	private String city;
+	private String status;
+	private String createTime;
+	private String updateTime;
+
+	public String getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public String getGender() {
 		return gender;
@@ -63,6 +90,7 @@ public class Person implements Serializable {
 				", age='" + age + '\'' +
 				", email='" + email + '\'' +
 				", city='" + city + '\'' +
+				", status='" + status + '\'' +
 				'}';
 	}
 }

@@ -5,10 +5,10 @@ layui.define(['element', 'jquery', 'layer'], function (exports) {
     var active = {
         //弹出alert框
         fn1: function () {
-            layer.alert("33333333333333")
+            layer.alert("33333333333333",{resize:false})
         },
 
-        //
+        //对话提示框
         fn2:function () {
           layer.open({
              title:'在线调试'

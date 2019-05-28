@@ -9,24 +9,25 @@ import java.util.List;
 public interface PersonDao {
 	//insert into user(id,name,age,gender,email,city)values(int,'sjcustom',int,0,'chao@163.com','henancustom');
 
-	@Insert("insert into person(name,age,gender,email,city) values(#{name},#{age},#{gender},#{email},#{city})")
-	int addPerson(Person person);
+	@Insert("insert into person(name,age,gender,email,city,createTime,status) values(#{name},#{age},#{gender},#{email},#{city},#{createTime},1)")
+	void addPerson(Person person);
 
-	@Update("update person set status = -1 where id = #{id}")
-	int delPerson(@Param("id") String id);
+	@Update("update person set status = -1, updateTime = #{time} where id = #{id}")
+	void delPerson(@Param("id") String id, @Param("time") String time);
 
-	@Update("update person set name = #{name},age = #{age},gender = #{gender},email = #{email},city = #{city} where id = #{id}")
-	int updatePerson(Person person);
+	@Update("update person set name = #{name},age = #{age},gender = #{gender},email = #{email},city = #{city},status = 1,updateTime = #{updateTime} where name = #{name}")
+	void updatePerson(Person person);
 
-	@Select("select id,name,age,gender,email,city from person where name like #{keyWord} and status != -1 limit #{page}, #{limit}")
-	List<Person> queryAllDataFromTable(@Param("page") int page, @Param("limit") int limit, @Param("keyWord") String keyWord);
+	@Select("select id,name,age,gender,email,city from person where name like #{name} and status != -1 limit #{page}, #{limit}")
+	List<Person> queryAllDataFromTable(@Param("page") int page, @Param("limit") int limit, @Param("name") String name);
 
-	@Select("select count(*) from person where name like #{keyWord} and status != -1")
-	int queryAllCount(String keyWord);
+	@Select("select count(*) from person where name like #{name} and status != -1")
+	int queryAllCount(String name);
 
 	@Select("select * from person where id = #{id}")
 	Person selectById(String id);
 
-	@Select("select count(#{name}) from person")
-	int selectByName(@Param("name") String name);
+	@Select("select * from person where name = #{name}")
+	Person selectPersonByName(@Param("name")String name);
+
 }

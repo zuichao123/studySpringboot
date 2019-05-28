@@ -25,18 +25,17 @@ public class PersonController {
 	 * 查询人员信息
 	 * @param page 页数
 	 * @param limit 条数
-	 * @param keyWord 姓名的关键字
+	 * @param name 姓名的关键字
 	 * @return
 	 */
 	@RequestMapping(value="showTable",method= RequestMethod.POST)
 	public Map<String, Object> getTable(@RequestParam(required=false,defaultValue="1") int page,
 										@RequestParam(required=false,defaultValue="15") int limit,
-										String keyWord) {
+										String name) {
 
-		System.out.printf("page:"+page+",limit:"+limit+",keyWord:"+keyWord);
+		List<Person> datas=personService.queryAllDataFromTable(page,limit,name);
+		int countx=  personService.queryAllCount(name);
 
-		List<Person> datas=personService.queryAllDataFromTable(page,limit,keyWord);
-		int countx=  personService.queryAllCount(keyWord);
 		Map<String,Object> map=new HashMap<String,Object>();
 		map.put("code",0);
 		map.put("msg","");
@@ -49,7 +48,7 @@ public class PersonController {
 	/*根据人员id查找到人员后跳转到编辑界面*/
 	@RequestMapping(value = "/person/editUI")
 	public ModelAndView editUI(ModelAndView modelAndView, String id){
-		modelAndView.setViewName("person/edit");
+		modelAndView.setViewName("person/editPerson");
 		Person person = personService.selectById(id);
 		modelAndView.addObject(person);
 		return modelAndView;
@@ -57,7 +56,7 @@ public class PersonController {
 	/*跳转到添加人员界面*/
 	@RequestMapping(value = "/person/addUI")
 	public ModelAndView addUI(ModelAndView modelAndView){
-		modelAndView.setViewName("person/add");
+		modelAndView.setViewName("person/addPerson");
 		return modelAndView;
 	}
 

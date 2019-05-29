@@ -29,7 +29,7 @@ layui.use(['form', 'jquery'], function () {
                         , time: 1000
                         , offset: 'auto'
                     }, function () {
-                        location.href = '/first'; //学生页面
+                        location.href = '/first'; //人员页面
                     });
                 } else {
                     $("#password").val("");

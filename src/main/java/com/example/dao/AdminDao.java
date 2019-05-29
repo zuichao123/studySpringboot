@@ -10,8 +10,6 @@ public interface AdminDao {
     @Select("select name,password from admin where name=#{name}")
 	Admin loginCheck(@Param("name") String name);
 
-    @Select("select name from admin where password = #{password}")
-    //String getNameByPassword(@Param("password") String password);
     //insert into admin(id,name,password,xingming,beizhu,status)values(int,'sjcustom','sjcustom','sjcustom','henancustom',int);
 
     @Insert("insert into admin(name,password,xingming,beizhu,createTime,status) values(#{name},#{password},#{xingming},#{beizhu},#{createTime},1)")

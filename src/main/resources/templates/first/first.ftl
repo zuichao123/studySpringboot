@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>SpringBoot - Layui - 练习</title>
     <link rel="stylesheet" href="static/layui/css/layui.css">
+    <style>
+        .first-page-iframe {
+            background-image: url(/static/img/cronaldo7.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 
@@ -66,7 +74,7 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;">
+        <div class="first-page-iframe" style="padding: 15px;">
 
             <iframe src="" frameborder="0" scrolling="no" id="test2" onload="this.height=100" width=100%></iframe>
 

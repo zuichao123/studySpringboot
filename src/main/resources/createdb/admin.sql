@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2019-05-22 11:22:17
+Date: 2019-05-30 20:18:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,13 +20,13 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(100) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of admin
--- ----------------------------
-INSERT INTO `admin` VALUES ('1', 'admin', '123456');
+  `xingming` varchar(255) CHARACTER SET gbk NOT NULL,
+  `status` varchar(2) NOT NULL,
+  `beizhu` varchar(255) CHARACTER SET gbk DEFAULT NULL,
+  `createTime` varchar(100) DEFAULT NULL,
+  `updateTime` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=latin1;

@@ -25,4 +25,6 @@ public interface AdminService {
 
     Admin selectAdminByName(String name);
 
+    PageRel editPassword(String id, String newPassword);
+
 }

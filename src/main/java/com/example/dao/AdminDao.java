@@ -33,4 +33,7 @@ public interface AdminDao {
     @Select("select * from admin where name = #{name}")
     Admin selectAdminByName(@Param("name")String name);
 
+    @Update("update admin set password = #{password} where id = #{id}")
+    int updatePassword(@Param("id") String id, @Param("password")String password);
+
 }

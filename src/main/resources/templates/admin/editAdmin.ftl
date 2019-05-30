@@ -45,11 +45,11 @@
                        placeholder="请输入备注" autocomplete="off" maxlength="30" class="layui-input">
             </div>
         </div>
-    </div>
-    <div class="layui-form-item layui-hide">
-        <input type="button" lay-submit lay-filter="layuiadmin-app-form-submitAdmin"
-               id="layuiadmin-app-form-submitAdmin"
-               value="提交">
+        <div class="layui-form-item layui-hide">
+            <input type="button" lay-submit lay-filter="layuiadmin-app-form-submitAdmin"
+                   id="layuiadmin-app-form-submitAdmin"
+                   value="提交">
+        </div>
     </div>
 </div>
 

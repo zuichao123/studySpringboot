@@ -143,4 +143,18 @@ public class AdminServiceImpl implements AdminService {
         return adminDao.selectAdminByName(name);
     }
 
+    @Override
+    public PageRel editPassword(String id, String password) {
+        PageRel pageRel = new PageRel();
+        password = MD5Utils.encryptMD5(password);
+        int updateCode = adminDao.updatePassword(id,password);
+        if (updateCode == 1){
+            pageRel.setCode(1);
+            pageRel.setMessage("修改成功");
+        }else {
+            pageRel.setCode(-1);
+            pageRel.setMessage("数据库操作失败了");
+        }
+        return pageRel;
+    }
 }

@@ -20,7 +20,6 @@ layui.use(['form', 'jquery'], function () {
             contentType: "application/json",
             success: function (res) {
                 var jsonObj = JSON.parse(res)
-
                 if (jsonObj == 1) {
                     //登入成功的提示与跳转
                     layer.msg('登录成功', {
@@ -29,7 +28,7 @@ layui.use(['form', 'jquery'], function () {
                         , time: 1000
                         , offset: 'auto'
                     }, function () {
-                        location.href = '/first'; //人员页面
+                        location.href = '/first'; //首页
                     });
                 } else {
                     $("#password").val("");

@@ -79,7 +79,7 @@ public class PersonServiceImpl implements PersonService {
                     } catch (Exception e) {
                         e.printStackTrace();
                         pageRel.setCode(-1);
-                        pageRel.setMessage("系统内部错误");
+                        pageRel.setMessage("update人员--操作数据库错误");
                     }
                 }
                 return pageRel;
@@ -92,7 +92,7 @@ public class PersonServiceImpl implements PersonService {
                 } catch (Exception e) {
                     e.printStackTrace();
                     pageRel.setCode(-1);
-                    pageRel.setMessage("系统内部错误");
+                    pageRel.setMessage("修改人员--操作数据库错误");
                 }
                 return pageRel;
             }
@@ -105,7 +105,7 @@ public class PersonServiceImpl implements PersonService {
             } catch (Exception e) {
                 e.printStackTrace();
                 pageRel.setCode(-1);
-                pageRel.setMessage("系统内部错误");
+                pageRel.setMessage("编辑人员--操作数据库错误");
             }
             return pageRel;
         }
@@ -135,7 +135,7 @@ public class PersonServiceImpl implements PersonService {
                 } catch (Exception e) {
                     e.printStackTrace();
                     pageRel.setCode(-1);
-                    pageRel.setMessage("系统内部错误");
+                    pageRel.setMessage("添加人员--操作数据库错误");
                 }
             }
             return pageRel;
@@ -148,7 +148,7 @@ public class PersonServiceImpl implements PersonService {
             } catch (Exception e) {
                 e.printStackTrace();
                 pageRel.setCode(-1);
-                pageRel.setMessage("系统内部错误");
+                pageRel.setMessage("添加人员--操作数据库错误");
             }
             return pageRel;
         }

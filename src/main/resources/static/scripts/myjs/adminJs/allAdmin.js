@@ -42,7 +42,7 @@ layui.use(['table', 'jquery', 'form'], function () {
     //重载
     var active = {
         reload: function () {
-            layer.closeAll();
+            //layer.closeAll();
             table.reload('layui_table_id', {
                 page: {
                     curr: 1 //重新从第 1 页开始
@@ -74,7 +74,7 @@ layui.use(['table', 'jquery', 'form'], function () {
         switch (obj.event) {
             case 'add':
                 // 弹出框
-                layer.open({
+                parent.layer.open({
                     type: 2,
                     title: "添加",
                     content: '/admin/addAdminUI',
@@ -100,7 +100,7 @@ layui.use(['table', 'jquery', 'form'], function () {
         switch (obj.event) {
             case 'edit':
                 // 弹出框
-                layer.open({
+                parent.layer.open({
                     type: 2,
                     title: "编辑",
                     content: ['/admin/editAdminUI?id=' + data.id, 'no'],
@@ -117,14 +117,16 @@ layui.use(['table', 'jquery', 'form'], function () {
                 });
                 break;
             case 'del':
-                layer.confirm('是否确认删除？', {resize: false}, function (index) {
+                parent.layer.confirm('是否确认删除？', {resize: false}, function (index) {
                     var df = {'id': data.id}
                     $.post("/admin/delAdmin", df, function (res) {
                         if (res == 1) {
+                            parent.layer.closeAll();
                             active.reload();
                             layer.msg('删除成功', {time: 3000, icon: 6});
                             return true;
                         } else {
+                            parent.layer.closeAll();
                             active.reload();
                             layer.alert("删除失败", {time: 3000, icon: 5});
                             return false;

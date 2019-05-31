@@ -41,8 +41,9 @@
         <div class="layui-form-item">
             <label class="layui-form-label"><span></span>备注：</label>
             <div class="layui-input-block">
-                <input type="text" name="beizhu" id="beizhu" value="${admin.beizhu!}"
-                       placeholder="请输入备注" autocomplete="off" maxlength="30" class="layui-input">
+                <textarea name="beizhu" id="beizhu" value="${admin.beizhu!}" placeholder="请输入备注" class="layui-textarea" style="width: 300px; resize:none;"
+                          onpropertychange="if(value.length>100) value=value.substr(0,100)" maxlength="100"
+                          autocomplete="off">${admin.beizhu!}</textarea>
             </div>
         </div>
         <div class="layui-form-item layui-hide">

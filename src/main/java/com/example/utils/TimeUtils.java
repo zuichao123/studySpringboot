@@ -8,6 +8,10 @@ public class TimeUtils {
 
     }
 
+    /**
+     * 获取指定模板的当前时间
+     * @return
+     */
     public static String getCurrentTime(){
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sd.format(new Date());

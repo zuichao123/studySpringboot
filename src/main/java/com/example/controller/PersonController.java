@@ -98,7 +98,6 @@ public class PersonController {
 		}catch (Exception e){
 			return getPageRel(e);
 		}
-
 	}
 
 	/**

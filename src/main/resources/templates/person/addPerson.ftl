@@ -67,8 +67,8 @@
             <label class="layui-form-label">住址：</label>
             <div class="layui-input-block">
                 <span class="inputSpan  textareaSpan">请输入住址</span>
-                <textarea name="city" id="city" placeholder="请输入住址" class="layui-textarea" style="width: 300px"
-                          onpropertychange="if(value.length>18) value=value.substr(0,18)" maxlength="18"
+                <textarea name="city" id="city" placeholder="请输入住址" class="layui-textarea" style="width: 300px; resize:none;"
+                          onpropertychange="if(value.length>100) value=value.substr(0,100)" maxlength="100"
                           autocomplete="off"></textarea>
             </div>
         </div>

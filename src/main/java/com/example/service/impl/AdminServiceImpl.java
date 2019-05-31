@@ -57,7 +57,7 @@ public class AdminServiceImpl implements AdminService {
                 } catch (Exception e) {
                     e.printStackTrace();
                     pageRel.setCode(-1);
-                    pageRel.setMessage("系统内部错误");
+                    pageRel.setMessage("添加人员时--操作数据库错误");
                 }
             }
             return pageRel;
@@ -71,7 +71,7 @@ public class AdminServiceImpl implements AdminService {
             } catch (Exception e) {
                 e.printStackTrace();
                 pageRel.setCode(-1);
-                pageRel.setMessage("系统内部错误");
+                pageRel.setMessage("添加人员时--操作数据库失败");
             }
             return pageRel;
         }
@@ -99,7 +99,7 @@ public class AdminServiceImpl implements AdminService {
                     } catch (Exception e) {
                         e.printStackTrace();
                         pageRel.setCode(-1);
-                        pageRel.setMessage("系统内部错误");
+                        pageRel.setMessage("编辑操作员--操作数据库失败");
                     }
                 }
                 return pageRel;
@@ -112,7 +112,7 @@ public class AdminServiceImpl implements AdminService {
                 } catch (Exception e) {
                     e.printStackTrace();
                     pageRel.setCode(-1);
-                    pageRel.setMessage("系统内部错误");
+                    pageRel.setMessage("编辑操作员--操作数据库错误");
                 }
                 return pageRel;
             }
@@ -125,7 +125,7 @@ public class AdminServiceImpl implements AdminService {
             } catch (Exception e) {
                 e.printStackTrace();
                 pageRel.setCode(-1);
-                pageRel.setMessage("系统内部错误");
+                pageRel.setMessage("编辑操作员时--操作数据库错误");
             }
             return pageRel;
         }
@@ -153,7 +153,7 @@ public class AdminServiceImpl implements AdminService {
             pageRel.setMessage("修改成功");
         }else {
             pageRel.setCode(-1);
-            pageRel.setMessage("数据库操作失败了");
+            pageRel.setMessage("修改密码--数据库操作失败了");
         }
         return pageRel;
     }

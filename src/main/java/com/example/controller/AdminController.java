@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.dto.PageRel;
 import com.example.entry.Admin;
-import com.example.service.impl.AdminServiceImpl;
+import com.example.service.AdminService;
 import com.example.utils.MD5Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +20,8 @@ import java.util.Map;
 @Controller
 @ResponseBody
 public class AdminController {
-
     @Resource
-    private AdminServiceImpl adminService;
+    private AdminService adminService;
 
     @RequestMapping(value = "judge", method = RequestMethod.POST)
     @ResponseBody

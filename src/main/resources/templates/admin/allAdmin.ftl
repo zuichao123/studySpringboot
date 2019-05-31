@@ -10,6 +10,14 @@
     <!--layer ui-->
     <link rel="stylesheet" href="/static/layui/css/layui.css">
     <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <style>
+        /*body {*/
+            /*background-image: url(/static/img/cr7_logo.png);*/
+            /*background-repeat: no-repeat;*/
+            /*background-size: cover;*/
+            /*height: 100%;*/
+        /*}*/
+    </style>
 
 </head>
 <body>

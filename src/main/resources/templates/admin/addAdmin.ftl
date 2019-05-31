@@ -60,8 +60,9 @@
             <label class="layui-form-label">备注：</label>
             <div class="layui-input-block">
                 <span class="inputSpan">请输入备注</span>
-                <input type="text" name="beizhu" id="beizhu" placeholder="请输入备注"
-                       autocomplete="off" maxlength="30" class="layui-input">
+                <textarea name="beizhu" id="beizhu" placeholder="请输入备注" class="layui-textarea" style="width: 300px; resize:none;"
+                          onpropertychange="if(value.length>100) value=value.substr(0,100)" maxlength="100"
+                          autocomplete="off"></textarea>
             </div>
         </div>
 

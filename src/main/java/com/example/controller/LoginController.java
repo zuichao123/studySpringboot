@@ -17,8 +17,15 @@ public class LoginController {
 	private AdminService adminService;
 
 	@RequestMapping("/")
-	public String login() {
-		return "login/login";
+	public ModelAndView login(ModelAndView modelAndView) {
+		modelAndView.setViewName("login/login");
+		return modelAndView;
+	}
+
+	@RequestMapping("/home")
+	public ModelAndView home(ModelAndView modelAndView) {
+		modelAndView.setViewName("first/home");
+		return modelAndView;
 	}
 
 	@RequestMapping("/all")
@@ -30,9 +37,19 @@ public class LoginController {
     @RequestMapping(value = "/first")
     @ResponseBody
     public ModelAndView first(ModelAndView modelAndView, HttpServletRequest request) {
-        Admin admin = (Admin)request.getSession().getAttribute("admin");
-        modelAndView.addObject("message", adminService.selectAdminByName(admin.getName()).getXingming());
-        modelAndView.setViewName("first/first");
+		try {
+			Admin admin = (Admin) request.getSession().getAttribute("admin");
+			if (admin == null){
+				modelAndView.setViewName("first/error");
+				return modelAndView;
+			}
+			modelAndView.addObject("message", adminService.selectAdminByName(admin.getName()).getXingming());
+			modelAndView.setViewName("first/first");
+		}catch (Exception e){
+			e.printStackTrace();
+			modelAndView.setViewName("first/error");
+			return modelAndView;
+		}
         return modelAndView;
     }
 }

@@ -29,14 +29,28 @@ layui.use(['table', 'jquery', 'form'], function () {
                 //console.log(res)
                 $(window).resize(function () {
                     // alert("asdhgajsghdj")
-                })
+                });
                 // 鼠标在table框上移动时候  高度变高
                 var box = $(".box_height").find(".layui-table-box")
                 var height = $(box).find(".layui-table-body").css("height")
                 var boxheight = parseInt(height) + 38 + "px"
                 $(box).css("height", boxheight);
+                //设置表格的背景色
+                setRowsColor();
             }
         });
+    };
+
+    //设置表格行背景颜色
+    function setRowsColor() {
+        //获取表格对象
+        var table = document.getElementsByClassName("layui-table");
+        if (table != null && table.length > 0){
+            var trs = table[0].querySelectorAll("tr");
+            for (var i=1;i<trs.length;i++){
+                i%2 == 0?trs[i].style.backgroundColor="yellow":trs[i].style.backgroundColor="pink";
+            }
+        }
     };
 
     //重载
@@ -69,7 +83,6 @@ layui.use(['table', 'jquery', 'form'], function () {
 
     //添加
     table.on('toolbar(dataTable)', function (obj) {
-
         layer.closeAll();
         switch (obj.event) {
             case 'add':
@@ -137,3 +150,4 @@ layui.use(['table', 'jquery', 'form'], function () {
         }
     });
 });
+

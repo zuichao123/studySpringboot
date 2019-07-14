@@ -12,6 +12,6 @@ layui.use(["layer","ex","element"],function () {
     layer.msg("adsfasdfasdf",{time:5000})
 
     //引用自己扩展的ex.js中的函数实现，layui.alert弹出
-    //ex.fn1()
+    ex.fn1()
     ex.fn2()
 })

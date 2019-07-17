@@ -17,6 +17,9 @@
             /*background-size: cover;*/
             /*height: 100%;*/
         /*}*/
+        td{
+            text-align: center;
+        }
     </style>
 
 </head>

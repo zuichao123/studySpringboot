@@ -28,7 +28,7 @@ public class PersonController {
 	 * @param name 姓名的关键字
 	 * @return
 	 */
-	@RequestMapping(value="showTable",method= RequestMethod.POST)
+	@RequestMapping(value="/showTable",method= RequestMethod.POST)
 	public Map<String, Object> getTable(@RequestParam(required=false,defaultValue="1") int page,
 										@RequestParam(required=false,defaultValue="15") int limit,
 										String name) {

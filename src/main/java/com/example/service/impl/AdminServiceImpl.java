@@ -4,8 +4,8 @@ import com.example.dao.AdminDao;
 import com.example.dto.PageRel;
 import com.example.entry.Admin;
 import com.example.service.AdminService;
-import com.example.utils.MD5Utils;
-import com.example.utils.TimeUtils;
+import com.example.utils.MD5Util;
+import com.example.utils.TimeUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -49,8 +49,8 @@ public class AdminServiceImpl implements AdminService {
                 pageRel.setMessage("该人员已存在");
             } else if ("-1".equals(status)) { //如果是-1删除状态
                 try {
-                    admin.setUpdateTime(TimeUtils.getCurrentTime());
-                    admin.setPassword(MD5Utils.encryptMD5(admin.getPassword()));
+                    admin.setUpdateTime(TimeUtil.getCurrentTime());
+                    admin.setPassword(MD5Util.encryptMD5(admin.getPassword()));
                     adminDao.updateAdmin(admin); //修改该人员的信息，并将此人的状态改为1
                     pageRel.setCode(1);
                     pageRel.setMessage("添加成功");
@@ -63,8 +63,8 @@ public class AdminServiceImpl implements AdminService {
             return pageRel;
         } else { //如果不存在
             try {
-                admin.setCreateTime(TimeUtils.getCurrentTime());
-                admin.setPassword(MD5Utils.encryptMD5(admin.getPassword()));
+                admin.setCreateTime(TimeUtil.getCurrentTime());
+                admin.setPassword(MD5Util.encryptMD5(admin.getPassword()));
                 adminDao.addAdmin(admin); //直接添加
                 pageRel.setCode(1);
                 pageRel.setMessage("添加成功");
@@ -92,7 +92,7 @@ public class AdminServiceImpl implements AdminService {
                 } else if ("-1".equals(status)) { //如果是删除状态
                     try {
                         delAdmin(admin.getId());// 删除自己这条
-                        admin.setUpdateTime(TimeUtils.getCurrentTime());
+                        admin.setUpdateTime(TimeUtil.getCurrentTime());
                         adminDao.updateAdmin(admin); //修改该人员的信息，并将此人的状态改为1
                         pageRel.setCode(1);
                         pageRel.setMessage("编辑成功");
@@ -105,7 +105,7 @@ public class AdminServiceImpl implements AdminService {
                 return pageRel;
             } else { //如果是同一个人
                 try {
-                    admin.setUpdateTime(TimeUtils.getCurrentTime());
+                    admin.setUpdateTime(TimeUtil.getCurrentTime());
                     adminDao.updateAdmin(admin);
                     pageRel.setCode(1);
                     pageRel.setMessage("编辑成功");
@@ -118,7 +118,7 @@ public class AdminServiceImpl implements AdminService {
             }
         } else { //如果这个人不存在--直接修改
             try {
-                admin.setUpdateTime(TimeUtils.getCurrentTime());
+                admin.setUpdateTime(TimeUtil.getCurrentTime());
                 adminDao.updateAdmin(admin);
                 pageRel.setCode(1);
                 pageRel.setMessage("编辑成功");
@@ -133,7 +133,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int delAdmin(String id) {
-        String time = TimeUtils.getCurrentTime();
+        String time = TimeUtil.getCurrentTime();
         adminDao.delAdmin(id,time);
         return 1;
     }
@@ -146,7 +146,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public PageRel editPassword(String id, String password) {
         PageRel pageRel = new PageRel();
-        password = MD5Utils.encryptMD5(password);
+        password = MD5Util.encryptMD5(password);
         int updateCode = adminDao.updatePassword(id,password);
         if (updateCode == 1){
             pageRel.setCode(1);

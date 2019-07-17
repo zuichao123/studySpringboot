@@ -3,7 +3,8 @@ package com.example.controller;
 import com.example.dto.PageRel;
 import com.example.entry.Admin;
 import com.example.service.AdminService;
-import com.example.utils.MD5Utils;
+import com.example.utils.MD5Util;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,16 +24,20 @@ public class AdminController {
     @Resource
     private AdminService adminService;
 
-    @RequestMapping(value = "judge", method = RequestMethod.POST)
+    @RequestMapping(value = "/judge", method = RequestMethod.POST)
     @ResponseBody
     public String jumpPage(@RequestBody Map<String, String> map, HttpSession session) {
+        if (StringUtils.isBlank(map.get("name")) || StringUtils.isBlank(map.get("password"))){
+            return "0";
+        }
+
         Admin admin = adminService.checkLogin(map.get("name"));
 
         if (admin == null) {
             return "0";
         } else {
-            if (admin.getPassword().equals(MD5Utils.encryptMD5(map.get("password")))) {
-                session.setAttribute("admin",admin);
+            if (admin.getPassword().equals(MD5Util.encryptMD5(map.get("password")))) {
+                session.setAttribute("admin",admin); //添加session
                 return "1";
             } else {
                 return "-1";
@@ -54,7 +59,7 @@ public class AdminController {
      * @param name  姓名的关键字
      * @return
      */
-    @RequestMapping(value = "showAdminTable", method = RequestMethod.POST)
+    @RequestMapping(value = "/showAdminTable", method = RequestMethod.POST)
     public Map<String, Object> getTable(@RequestParam(required = false, defaultValue = "1") int page,
                                         @RequestParam(required = false, defaultValue = "15") int limit,
                                         String name) {
@@ -157,7 +162,7 @@ public class AdminController {
             }
         }
         String password = admin.getPassword(); //获取原密码
-        oldPassword = MD5Utils.encryptMD5(oldPassword);
+        oldPassword = MD5Util.encryptMD5(oldPassword);
         if (!password.equals(oldPassword)) {
             return "原密码错误";
         }

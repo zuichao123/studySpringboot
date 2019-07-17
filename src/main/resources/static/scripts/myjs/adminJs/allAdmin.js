@@ -9,7 +9,7 @@ layui.use(['table', 'jquery', 'form'], function () {
     function chaxun(name) {
         table.render({
             elem: '#layui_table_id' //指定表格元素
-            , url: 'showAdminTable'  //请求路径
+            , url: '/showAdminTable'  //请求路径
             , where: {name: name}  //请求参数
             , method: 'post'  //提交方式
             , page: true

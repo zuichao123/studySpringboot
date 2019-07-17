@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
  * @author sunjian
  *
  */
-public class MD5Utils {
+public class MD5Util {
 	
 	/**
 	 * md5 加密
@@ -72,8 +72,8 @@ public class MD5Utils {
 	public static void main(String[] args) {
 		String string = "1234qwer";
 
-		System.out.println(MD5Utils.encode(string));
-		System.out.println(MD5Utils.encrypt(string));
-		System.out.println(MD5Utils.encryptMD5(string));
+		System.out.println(MD5Util.encode(string));
+		System.out.println(MD5Util.encrypt(string));
+		System.out.println(MD5Util.encryptMD5(string));
 	}
 }

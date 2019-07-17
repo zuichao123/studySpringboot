@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * @Date 2019-03-07 17:25
  * @description 登录加密用
  */
-public class SHA256Utils {
+public class SHA256Util {
 
     /**
      * 利用java原生的类实现SHA256加密

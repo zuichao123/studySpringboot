@@ -14,7 +14,7 @@ layui.use(['form', 'jquery'], function () {
     //提交
     form.on('submit(LAY-user-login-submit)', function (obj) { //回到函数调用submit,监听submit按钮的动作；提交时，会将表单中所有的input输入框中的name 和输入的值组成json作为参数由obj接收
         $.ajax({
-            url: "judge",
+            url: "/judge",
             type: "post",
             data: JSON.stringify(obj.field),
             contentType: "application/json",

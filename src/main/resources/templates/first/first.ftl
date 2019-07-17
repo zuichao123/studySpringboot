@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>SpringBoot - Layui - 练习</title>
     <link rel="stylesheet" href="static/layui/css/layui.css">
+    <style type="text/css">
+        .layui-a-link:hover{
+            color: yellow;
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 
@@ -54,14 +59,14 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">人员管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="#" my-src="/all">所有人员</a></dd>
+                        <dd><a href="#" my-src="/all" class="layui-a-link">&nbsp;&nbsp;&nbsp;&nbsp;所有人员</a></dd>
                         <#--<dd><a href="">超链接</a></dd>-->
                     </dl>
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">系统管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="#" my-src="/allAdmin">操作员管理</a></dd>
+                        <dd><a href="#" my-src="/allAdmin" class="layui-a-link" >&nbsp;&nbsp;&nbsp;&nbsp;操作员管理</a></dd>
                         <#--<dd><a href="">超链接</a></dd>-->
                     </dl>
                 </li>

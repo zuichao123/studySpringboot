@@ -16,7 +16,7 @@ public class LoginController {
 	@Resource
 	private AdminService adminService;
 
-	@RequestMapping("/")
+	@RequestMapping(value = {"/login","/"})
 	public ModelAndView login(ModelAndView modelAndView) {
 		modelAndView.setViewName("login/login");
 		return modelAndView;
@@ -31,6 +31,12 @@ public class LoginController {
 	@RequestMapping("/all")
 	public ModelAndView index(ModelAndView modelAndView) {
 		modelAndView.setViewName("person/allPerson");
+		return modelAndView;
+	}
+
+	@RequestMapping("/serror")
+	public ModelAndView error(ModelAndView modelAndView) {
+		modelAndView.setViewName("first/error");
 		return modelAndView;
 	}
 

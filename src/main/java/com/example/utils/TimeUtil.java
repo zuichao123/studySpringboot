@@ -3,7 +3,7 @@ package com.example.utils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TimeUtils {
+public class TimeUtil {
     public static void main(String[] args) {
 
     }

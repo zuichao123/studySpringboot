@@ -17,7 +17,7 @@
     <div class="layadmin-tips">
 
         <div class="layui-text">
-            <a href="javascript:top.location.href = '/';" style="font-size: 17px;">登陆已过期, 点此重新登陆</a>
+            <a href="javascript:top.location.href = '/login';" style="font-size: 17px;">登陆已过期, 点此重新登陆</a>
         </div>
 
     </div>

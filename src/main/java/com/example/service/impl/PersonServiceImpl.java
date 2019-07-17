@@ -4,7 +4,7 @@ import com.example.dao.PersonDao;
 import com.example.dto.PageRel;
 import com.example.entry.Person;
 import com.example.service.PersonService;
-import com.example.utils.TimeUtils;
+import com.example.utils.TimeUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -72,7 +72,7 @@ public class PersonServiceImpl implements PersonService {
                 } else if ("-1".equals(status)) { //如果是删除状态
                     try {
                         delPerson(person.getId());
-                        person.setUpdateTime(TimeUtils.getCurrentTime());
+                        person.setUpdateTime(TimeUtil.getCurrentTime());
                         personDao.updatePerson(person); //修改该人员的信息，并将此人的状态改为1
                         pageRel.setCode(1);
                         pageRel.setMessage("编辑成功");
@@ -85,7 +85,7 @@ public class PersonServiceImpl implements PersonService {
                 return pageRel;
             } else { //如果是同一个人
                 try {
-                    person.setUpdateTime(TimeUtils.getCurrentTime());
+                    person.setUpdateTime(TimeUtil.getCurrentTime());
                     personDao.updatePerson(person);
                     pageRel.setCode(1);
                     pageRel.setMessage("编辑成功");
@@ -98,7 +98,7 @@ public class PersonServiceImpl implements PersonService {
             }
         } else { //如果这个人不存在--直接修改了
             try {
-                person.setUpdateTime(TimeUtils.getCurrentTime());
+                person.setUpdateTime(TimeUtil.getCurrentTime());
                 personDao.updatePerson(person);
                 pageRel.setCode(1);
                 pageRel.setMessage("编辑成功");
@@ -128,7 +128,7 @@ public class PersonServiceImpl implements PersonService {
                 pageRel.setMessage("该人员已存在");
             } else if ("-1".equals(status)) { //如果是-1删除状态
                 try {
-                    person.setUpdateTime(TimeUtils.getCurrentTime());
+                    person.setUpdateTime(TimeUtil.getCurrentTime());
                     personDao.updatePerson(person); //修改该人员的信息，并将此人的状态改为1
                     pageRel.setCode(1);
                     pageRel.setMessage("添加成功");
@@ -141,7 +141,7 @@ public class PersonServiceImpl implements PersonService {
             return pageRel;
         } else { //如果不存在
             try {
-                person.setCreateTime(TimeUtils.getCurrentTime());
+                person.setCreateTime(TimeUtil.getCurrentTime());
                 personDao.addPerson(person);//直接添加
                 pageRel.setCode(1);
                 pageRel.setMessage("添加成功");
@@ -156,7 +156,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public int delPerson(String id) {
-        String time = TimeUtils.getCurrentTime();
+        String time = TimeUtil.getCurrentTime();
         personDao.delPerson(id,time);
         return 1;
     }

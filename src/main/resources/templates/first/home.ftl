@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
     <style>
         body {
-            background-image: url(/static/img/cronaldo7.png);
+            background-image: url(/static/img/timg.jpg);
             background-repeat: no-repeat;
             height: 100%;
             background-size: cover;

@@ -19,11 +19,14 @@ layui.use(['table', 'jquery', 'form'], function () {
                 //{type: 'checkbox'}, //开启多选框
                 {field: 'id', title: '序号', sort: true},
                 {field: 'name', title: '姓名', sort: true},
-                {field: 'age', title: '年龄', sort: true},
+                {field: 'age', title: '年龄', sort: false},
                 {field: 'gender', title: '性别', sort: true},
-                {field: 'email', title: '邮箱', sort: true},
-                {field: 'city', title: '住址', sort: true},
-                {field: 'right', title: '操作', toolbar: '#rmt-table-toolbar-bar', minWidth: 230}
+                {field: 'email', title: '邮箱', sort: false},
+                {field: 'province', title: '省份', sort: false},
+                {field: 'city', title: '城市', sort: false},
+                {field: 'updateTime', title: '添加时间', sort: true},
+                {field: 'comments', title: '备注', sort: false},
+                {field: 'right', title: '操作', toolbar: '#rmt-table-toolbar-bar', minWidth: 130}
             ]]
             , done: function (res, curr, count) {
                 //数据的回调用，可不写
@@ -53,7 +56,8 @@ layui.use(['table', 'jquery', 'form'], function () {
                     , age: $('#age').val()//年龄
                     , gender: $('#gender').val()// 性别
                     , email: $('#email').val() // 邮箱
-                    , city: $('#cigy').val() //地址
+                    , province: $('#province').val() //身份
+                    , city: $('#cigy').val() //城市
                 }
             });
         }

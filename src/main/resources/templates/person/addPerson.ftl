@@ -64,10 +64,29 @@
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label">住址：</label>
+            <label class="layui-form-label"><span> * </span>省份：</label>
+            <div class="layui-input-block selectlayui-input-block">
+                <span class="inputSpan">请选择</span>
+                <select name="province" lay-filter="province" lay-search="" lay-verify="required" id="province" lay-search=""    class="select"  autocomplete="off">
+                    <option  value="" selected>请选择</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label"><span> * </span>城市：</label>
             <div class="layui-input-block">
-                <span class="inputSpan  textareaSpan">请输入住址</span>
-                <textarea name="city" id="city" placeholder="请输入住址" class="layui-textarea" style="width: 300px; resize:none;"
+                <span class="inputSpan  textareaSpan">请输入城市</span>
+                <input type="city" name="city" id="city" lay-verify="required" placeholder="请输入城市" autocomplete="off"
+                       class="layui-input" maxlength="30" maxlength="50">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注：</label>
+            <div class="layui-input-block">
+                <span class="inputSpan  textareaSpan">请输入备注</span>
+                <textarea name="comments" id="comments" placeholder="请输入备注" class="layui-textarea" style="width: 300px; resize:none;"
                           onpropertychange="if(value.length>100) value=value.substr(0,100)" maxlength="100"
                           autocomplete="off"></textarea>
             </div>

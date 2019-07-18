@@ -30,5 +30,5 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/sunjian?serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/sunjian2?serverTimezone=GMT%2B8
     type: com.alibaba.druid.pool.DruidDataSource

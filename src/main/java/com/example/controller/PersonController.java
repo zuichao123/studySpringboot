@@ -3,6 +3,8 @@ package com.example.controller;
 import com.example.dto.PageRel;
 import com.example.entry.Person;
 import com.example.service.PersonService;
+import com.example.utils.CacheUtil;
+import net.minidev.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +44,9 @@ public class PersonController {
 		map.put("count",countx);
 		map.put("data",datas);
 
+//		for(Person p:datas){
+//			System.out.printf("-----------<<<<>>>>"+p.toString());
+//		}
 		return map;
 	}
 
@@ -58,6 +63,22 @@ public class PersonController {
 	public ModelAndView addUI(ModelAndView modelAndView){
 		modelAndView.setViewName("person/addPerson");
 		return modelAndView;
+	}
+
+	/*获取省份信息*/
+	@RequestMapping(value = "/person/getProvince")
+	public JSONObject getProvince(){
+		List<String> provinceList = CacheUtil.provinceCache.getIfPresent("provinces");
+//		for(String s:provinceList){
+//			System.out.printf("-----------<<<<>>>>"+s.toString());
+//		}
+		JSONObject provinceJson = new JSONObject();
+		int i = 0;
+		for(String s:provinceList){
+			provinceJson.put(i+"", s);
+			i++;
+		}
+		return provinceJson;
 	}
 
 	/**

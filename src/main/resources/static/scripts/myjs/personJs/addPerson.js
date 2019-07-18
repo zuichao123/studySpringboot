@@ -2,6 +2,28 @@ layui.use(['form', 'jquery'], function () {
     var $ = layui.jquery,
         form = layui.form;
 
+    getProvince();
+    //获取省份
+    function getProvince(){
+        $.ajax({
+            url:"/person/getProvince",
+            type:"get",
+            dataType:"json",
+            success:function (result) {
+                alert(result);
+                var list = result;
+                var province = document.getElementById("province");
+                for(var p in list){
+                    var option = document.createElement("option");
+                    option.setAttribute("value", p);
+                    option.innerText = list[p];
+                    province.appendChild(option);
+                    form.render("select");
+                }
+            }
+        });
+    }
+
     form.on("submit(layuiadmin-app-form-submit)", function (data) {
 
         var field = data.field

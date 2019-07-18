@@ -8,11 +8,27 @@ public class Person implements Serializable {
 	private String gender;
 	private String age;
 	private String email;
+	private String province;
 	private String city;
 	private String status;
 	private String createTime;
 	private String updateTime;
+	private String comments;
 
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+	public void setProvince(String province){
+		this.province = province;
+	}
+	public String getProvince(){
+		return province;
+	}
 	public String getCreateTime() {
 		return createTime;
 	}
@@ -89,8 +105,12 @@ public class Person implements Serializable {
 				", gender='" + gender + '\'' +
 				", age='" + age + '\'' +
 				", email='" + email + '\'' +
+				", province='" + province + '\'' +
 				", city='" + city + '\'' +
 				", status='" + status + '\'' +
+				", createTime='" + createTime + '\'' +
+				", updateTime='" + updateTime + '\'' +
+				", comments='" + comments + '\'' +
 				'}';
 	}
 }

@@ -6,6 +6,7 @@ import com.example.utils.CacheUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ProvinceServiceImpl implements ProvinceService {
@@ -24,7 +25,9 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     @Override
     public void selectAllProvince() {
-
+        List<String> pName = provinceDao.selectAllProvince();
+        List<String> pId = provinceDao.selectAllProvincePId();
+        CacheUtil.provinceIdCache.put("provincesId", provinceDao.selectAllProvincePId());
         CacheUtil.provinceCache.put("provinces", provinceDao.selectAllProvince());
     }
 }

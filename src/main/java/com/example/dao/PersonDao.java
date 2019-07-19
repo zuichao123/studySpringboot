@@ -9,13 +9,13 @@ import java.util.List;
 public interface PersonDao {
 	//insert into user(id,name,age,gender,email,city)values(int,'sjcustom',int,0,'chao@163.com','henancustom');
 
-	@Insert("insert into person(name,age,gender,email,province,city,createTime,updateTime,status) values(#{name},#{age},#{gender},#{email},#{city},#{createTime},#{createTime},1)")
+	@Insert("insert into person(name,age,gender,email,province,city,createTime,updateTime,comments,status) values(#{name},#{age},#{gender},#{email},#{province},#{city},#{createTime},#{createTime},#{comments},1)")
 	void addPerson(Person person);
 
 	@Update("update person set status = -1, updateTime = #{time} where id = #{id}")
 	void delPerson(@Param("id") String id, @Param("time") String time);
 
-	@Update("update person set name = #{name},age = #{age},gender = #{gender},email = #{email},province = #{province},city = #{city},status = 1,updateTime = #{updateTime} where name = #{name}")
+	@Update("update person set name = #{name},age = #{age},gender = #{gender},email = #{email},province = #{province},city = #{city},status = 1,updateTime = #{updateTime},comments = #{comments} where name = #{name}")
 	void updatePerson(Person person);
 
 	@Select("select id,name,age,gender,email,province,city,updateTime,comments from person where name like #{name} and status != -1 limit #{page}, #{limit}")

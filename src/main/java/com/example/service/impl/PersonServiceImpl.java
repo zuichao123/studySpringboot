@@ -142,6 +142,9 @@ public class PersonServiceImpl implements PersonService {
         } else { //如果不存在
             try {
                 person.setCreateTime(TimeUtil.getCurrentTime());
+
+                //System.out.printf("------------"+person.toString());
+
                 personDao.addPerson(person);//直接添加
                 pageRel.setCode(1);
                 pageRel.setMessage("添加成功");

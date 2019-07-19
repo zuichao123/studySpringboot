@@ -8,6 +8,7 @@ layui.use(['table', 'jquery', 'form'], function () {
 
     function chaxun(name) {
         table.render({
+            id: 'id', //可以在这里设置需要隐藏的列的字段名，如果是要隐藏多列的话这样写 id:'id,sex'
             elem: '#layui_table_id' //指定表格元素
             , url: '/showTable'  //请求路径
             , where: {name: name}  //请求参数
@@ -17,7 +18,7 @@ layui.use(['table', 'jquery', 'form'], function () {
             , limit: 10//要传向后台的每页显示条数
             , cols: [[
                 //{type: 'checkbox'}, //开启多选框
-                {field: 'id', title: '序号', sort: true},
+                //{field: 'id', title: '序号', sort: true,}, // 隐藏了，就不能写了
                 {field: 'name', title: '姓名', sort: true},
                 {field: 'age', title: '年龄', sort: false},
                 {field: 'gender', title: '性别', sort: true},
@@ -84,7 +85,7 @@ layui.use(['table', 'jquery', 'form'], function () {
                     type: 2,
                     title: "添加",
                     content: '/person/addUI',
-                    area: ['554px', '469px'],
+                    area: ['550px', '460px'],
                     btn: ['确定', '取消'],
                     resize: false,
                     yes:function (index,layero) {
@@ -109,8 +110,8 @@ layui.use(['table', 'jquery', 'form'], function () {
                 parent.layer.open({
                     type: 2,
                     title: "编辑",
-                    content: ['/person/editUI?id=' + data.id, 'no'],
-                    area: ['554px', '469px'],
+                    content: ['/person/editUI?id=' + data.id],
+                    area: ['550px', '460px'],
                     btn: ['确定', '取消'],
                     resize: false,
                     yes:function (index,layero) {

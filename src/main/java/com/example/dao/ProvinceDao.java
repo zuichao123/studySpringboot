@@ -12,7 +12,10 @@ public interface ProvinceDao {
     @Select("select count(*) from province")
     int selectProvinceCount();
 
-    @Select("select pName from province")
+    @Select("select pId from province ORDER by pId")
+    List<String> selectAllProvincePId();
+
+    @Select("select pName from province ORDER by pId")
     List<String> selectAllProvince();
 
     @Select("select pName from province where pId = #{pId}")

@@ -7,7 +7,6 @@ import java.util.List;
 
 public class CacheUtil {
 
-
     public final static Cache<String, List<String>> provinceCache = CacheBuilder.newBuilder()
             //设置cache的初始大小为10，要合理设置该值
             .initialCapacity(10)
@@ -17,4 +16,7 @@ public class CacheUtil {
 //           .expireAfterWrite(30, TimeUnit.SECONDS)
             //构建cache实例
             .build();
+
+    public final static Cache<String, List<String>> provinceIdCache = CacheBuilder.newBuilder().initialCapacity(10)
+            .concurrencyLevel(5).build();
 }

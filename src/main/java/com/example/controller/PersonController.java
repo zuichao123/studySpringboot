@@ -55,6 +55,9 @@ public class PersonController {
 	public ModelAndView editUI(ModelAndView modelAndView, String id){
 		modelAndView.setViewName("person/editPerson");
 		Person person = personService.selectById(id);
+
+		System.out.printf("edit person:"+person.toString());
+
 		modelAndView.addObject(person);
 		return modelAndView;
 	}
@@ -65,18 +68,25 @@ public class PersonController {
 		return modelAndView;
 	}
 
-	/*获取省份信息*/
+	/*从缓存中获取省份信息*/
 	@RequestMapping(value = "/person/getProvince")
 	public JSONObject getProvince(){
 		List<String> provinceList = CacheUtil.provinceCache.getIfPresent("provinces");
+//		List<String> provinceIdList = CacheUtil.provinceIdCache.getIfPresent("provincesId");
+//		String[] pIds = new String[provinceIdList.size()];
+//		int i = 0;
+//		for(String pId:provinceIdList){
+//			pIds[i] = pId;
+//			i++;
+//		}
 //		for(String s:provinceList){
 //			System.out.printf("-----------<<<<>>>>"+s.toString());
 //		}
 		JSONObject provinceJson = new JSONObject();
-		int i = 0;
+//		int j = 0;
 		for(String s:provinceList){
-			provinceJson.put(i+"", s);
-			i++;
+			provinceJson.put(s, s);
+//			j++;
 		}
 		return provinceJson;
 	}

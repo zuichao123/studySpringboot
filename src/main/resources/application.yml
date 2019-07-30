@@ -1,5 +1,5 @@
 server:
-  port: 7777
+  port: 17777
   servlet:
     session:
       timeout: 10
@@ -30,5 +30,5 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/sunjian2?serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/sunjian2?&useSSL=false&serverTimezone=UTC
     type: com.alibaba.druid.pool.DruidDataSource

@@ -11,17 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class AuthorizationInterceptor implements HandlerInterceptor {
+public class MyInterceptor implements HandlerInterceptor {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    //白名单
+    private static String [] whiteArr = {"/login","/judge","/serror","/first"};
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String urlPath = request.getServletPath();
-        logger.debug("-- ◆◆◆ --> 进入拦截器，请求URL："+urlPath);
-        System.out.printf("-- ◆◆◆ --> 进入拦截器，请求URL："+urlPath+"\n");
+        logger.debug("-- ◆◆◆ --> 进入拦截器，请求URL：{}",urlPath);
 
-        //白名单
-        String [] whiteArr = new String[]{"/judge", "/login","/serror"};
+        //HandlerMethod handlerMethod = (HandlerMethod) handler;
+        //Method method = handlerMethod.getMethod();
+        //String methodName = method.getName();
+        //logger.debug("-- ◆◆◆ --> 拦截到了方法：{}，在该方法执行之前执行", methodName);
+
         for (String s: whiteArr){
             if (s.equals(urlPath)){
                 return true;
@@ -30,6 +34,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
 
         //账号缓存
         Admin admin = (Admin) request.getSession().getAttribute("admin");
+        logger.debug("-- ◆◆◆ --> session = {}", admin);
 
         String redirectUrl = "/serror";
 
@@ -39,6 +44,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
 
         if (admin == null){
             response.sendRedirect(redirectUrl);
+            logger.debug("-- ◆◆◆ -->跳转到{}页面中", redirectUrl);
             return false;
         }
 

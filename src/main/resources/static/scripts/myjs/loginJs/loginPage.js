@@ -4,22 +4,23 @@ layui.use(['form', 'jquery'], function () {
 
     form.render();
 
-    $(document).keyup(function(event){
-        if(event.keyCode == "13"){
+    $(document).keyup(function (event) {
+        if (event.keyCode == "13") {
             //触发按钮点击事件
             $("#submit").trigger("click");
         }
-    })
+    });
 
     //提交
     form.on('submit(LAY-user-login-submit)', function (obj) { //回到函数调用submit,监听submit按钮的动作；提交时，会将表单中所有的input输入框中的name 和输入的值组成json作为参数由obj接收
+        console.log(JSON.stringify(obj.field));
         $.ajax({
             url: "/judge",
             type: "post",
             data: JSON.stringify(obj.field),
             contentType: "application/json",
             success: function (res) {
-                var jsonObj = JSON.parse(res)
+                var jsonObj = JSON.parse(res);
                 if (jsonObj == 1) {
                     //登入成功的提示与跳转
                     layer.msg('登录成功', {

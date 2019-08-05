@@ -15,11 +15,9 @@ import org.springframework.web.servlet.config.annotation.*;
 import java.util.List;
 
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
-
+public class MyInterceptorConfig implements WebMvcConfigurer {
     @Autowired
-    private AuthorizationInterceptor authorizationInterceptor;
-
+    private MyInterceptor myInterceptor;
 
     @Override
     public void configurePathMatch(PathMatchConfigurer pathMatchConfigurer) {
@@ -48,7 +46,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authorizationInterceptor).addPathPatterns("/**").excludePathPatterns("/static/**");
+        // 实现 WebMvcConfigurer不会导致静态资源被拦截
+        registry.addInterceptor(myInterceptor).addPathPatterns("/**").excludePathPatterns("/static/**");
     }
 
     @Override
@@ -110,4 +109,5 @@ public class WebConfig implements WebMvcConfigurer {
     public MessageCodesResolver getMessageCodesResolver() {
         return null;
     }
+
 }

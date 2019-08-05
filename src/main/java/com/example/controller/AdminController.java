@@ -26,18 +26,16 @@ public class AdminController {
 
     @RequestMapping(value = "/judge", method = RequestMethod.POST)
     @ResponseBody
-    public String jumpPage(@RequestBody Map<String, String> map, HttpSession session) {
-        if (StringUtils.isBlank(map.get("name")) || StringUtils.isBlank(map.get("password"))){
+    public String jumpPage(@RequestBody Admin admins, HttpSession session) {
+        if (StringUtils.isBlank(admins.getName()) || StringUtils.isBlank( admins.getPassword())) {
             return "0";
         }
-
-        Admin admin = adminService.checkLogin(map.get("name"));
-
+        Admin admin = adminService.checkLogin(admins.getName());
         if (admin == null) {
             return "0";
         } else {
-            if (admin.getPassword().equals(MD5Util.encryptMD5(map.get("password")))) {
-                session.setAttribute("admin",admin); //添加session
+            if (admin.getPassword().equals(MD5Util.encryptMD5( admins.getPassword()))) {
+                session.setAttribute("admin", admin); //添加session
                 return "1";
             } else {
                 return "-1";
@@ -154,7 +152,7 @@ public class AdminController {
         response.setContentType("application/json; charset=UTF-8");
         Admin admin = (Admin) request.getSession().getAttribute("admin");
         if (admin == null) {
-            request.getSession().invalidate();
+            request.getSession().invalidate(); //清除session的所有信息
             try {
                 response.sendRedirect("/");
             } catch (Exception e) {

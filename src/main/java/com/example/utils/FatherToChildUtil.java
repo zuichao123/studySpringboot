@@ -5,8 +5,8 @@ import java.lang.reflect.Method;
 
 /**
  * @ClassName : FatherToChildUtil
- * @Description :  利用反射父类给子类赋值
- * @author : ZhaoYin
+ * @Description : 利用反射父类给子类赋值
+ * @author : sunjian
  * @date : 2019/3/13 20:51
  */
 public class FatherToChildUtil {
@@ -29,14 +29,12 @@ public class FatherToChildUtil {
     /**
      * @MethodName upperHeadChar
      * @Description 首字母大写
-     * @param in
-     * @author ZhaoYin
+     * @param codes 字符
+     * @author jack
      * @date 2019/3/13 20:52
      * @return java.lang.String
      */
-    public static String upperHeadChar(String in) {
-        String head = in.substring(0, 1);
-        String out = head.toUpperCase() + in.substring(1, in.length());
-        return out;
+    public static String upperHeadChar(String codes) {
+        return codes.substring(0, 1).toUpperCase() + codes.substring(1, codes.length());
     }
 }

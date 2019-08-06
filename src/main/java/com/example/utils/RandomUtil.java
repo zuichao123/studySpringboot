@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * @author ly
+ * @author jack
  * @Description
  * @Date 2019-02-20 17:22
  * @description: 随机
@@ -27,7 +27,7 @@ public class RandomUtil {
     }
 
     /**
-     * @Author ly
+     * @Author jack
      * @Description 返回去掉-的uuid
      * @Date 2019-03-01 15:22
      * @Param []
